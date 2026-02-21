@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "factoryName": {
+            "value": "adf-dataeng-jasmine"
+        },
+        "linked_service_jas_accountKey": {
+            "value": ""
+        },
+        "Ls_Databricks_accessToken": {
+            "value": ""
+        },
+        "Ls_databricks_notebook_accessToken": {
+            "value": ""
+        },
+        "linked_service_jas_properties_typeProperties_url": {
+            "value": "https://storagedatalakejas.dfs.core.windows.net/"
+        },
+        "Ls_databricks_notebook_properties_typeProperties_existingClusterId": {
+            "value": "0221-054443-uoye6efv"
+        }
+    }
+}
