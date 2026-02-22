@@ -19,9 +19,10 @@ The project is implemented using the following Azure services:
 🔄 Medallion Architecture
 
 #Bronze Layer
-  Raw data ingestion from source
-  Stored in ADLS Gen2
-  Minimal transformation
+ * Raw data ingestion from source
+ * Stored in ADLS Gen2
+ * Minimal transformation
+  
 
 #Silver Layer
   Data cleansing
