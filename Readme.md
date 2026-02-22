@@ -50,7 +50,7 @@ The project is implemented using the following Azure services:
 2️⃣ Azure Databricks processes raw data using PySpark transformations.\
 3️⃣ Cleaned data is written to the Silver layer.\
 4️⃣ Aggregated datasets are stored in the Gold layer.\
-5️⃣ Azure Synapse Analytics is used for querying and reporting.\
+5️⃣ Azure Synapse Analytics is used for querying and reporting.
 
 ## Sample PySpark Transformation:
 
@@ -67,20 +67,17 @@ The project is implemented using the following Azure services:
 `
 ## Sample SQL Query (Gold Layer):
 
-     ` SELECT customer_id,
-           SUM(order_amount) AS total_spent
-    FROM gold.orders
-    GROUP BY customer_id;`
+     `SELECT customer_id,SUM(order_amount) AS total_spent FROM gold.orders GROUP BY customer_id;`
 
 
 ## Key Skills Demonstrated
 
-✔ ETL Pipeline Design
-✔ Cloud Data Engineering
-✔ PySpark Transformations
-✔ Azure Data Factory Orchestration
-✔ Data Lake Architecture
-✔ SQL Query Optimization
+✔ ETL Pipeline Design\
+✔ Cloud Data Engineering\
+✔ PySpark Transformations\
+✔ Azure Data Factory Orchestration\
+✔ Data Lake Architecture\
+✔ SQL Query Optimization\
 ✔ Medallion Architecture Implementation
 
 ---
