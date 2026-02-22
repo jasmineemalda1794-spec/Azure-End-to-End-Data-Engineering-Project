@@ -1,25 +1,39 @@
 # Azure End-to-End Data Engineering Project
 
+Project Overview:
 
-## 📌 Project Overview
-This project demonstrates an end-to-end data engineering pipeline built using Microsoft Azure services following the Medallion Architecture (Bronze, Silver, Gold layers).
+This project demonstrates an end-to-end Azure Data Engineering pipeline built using modern cloud data architecture principles. The solution follows the Medallion Architecture (Bronze → Silver → Gold) design pattern to ingest, transform, and serve data for analytics.
 
-The pipeline performs data ingestion, transformation, aggregation, and reporting using Azure-native tools.
+The pipeline automates data ingestion, transformation using PySpark, and loading into curated layers for reporting and analysis.
 
----
+Architecture:
 
-## 🏗 Architecture
+The project is implemented using the following Azure services:
 
-Bronze → Silver → Gold architecture:
+  -> Azure Data Factory (ADF) – Data ingestion & orchestration
+  -> Azure Data Lake Storage Gen2 (ADLS) – Data storage
+  -> Azure Databricks – Data transformation using PySpark
+  -> Azure Synapse Analytics – Querying curated data
+  -> SQL – Data validation & reporting
 
-1. Bronze Layer – Raw data ingestion from CSV into ADLS Gen2
-2. Silver Layer – Data cleaning and transformation using Databricks (PySpark)
-3. Gold Layer – Aggregated business-ready data
-4. External table creation in Synapse Analytics
-5. Automated orchestration using Azure Data Factory Trigger
+🔄 Medallion Architecture
 
----
+Bronze Layer
+  Raw data ingestion from source
+  Stored in ADLS Gen2
+  Minimal transformation
 
+Silver Layer
+  Data cleansing
+  Handling null values
+  Data type standardization
+  Business logic transformations
+
+Gold Layer
+  Aggregated and curated datasets
+  Ready for analytics and reporting
+  Optimized for querying
+  
 ## ⚙ Technologies Used
 
 - Azure Data Factory
@@ -29,25 +43,43 @@ Bronze → Silver → Gold architecture:
 - GitHub
 
 ---
+Project Workflow
 
-## 🔄 Pipeline Workflow
+1️⃣ Data is ingested into the Bronze layer using Azure Data Factory pipelines.
+2️⃣ Azure Databricks processes raw data using PySpark transformations.
+3️⃣ Cleaned data is written to the Silver layer.
+4️⃣ Aggregated datasets are stored in the Gold layer.
+5️⃣ Azure Synapse Analytics is used for querying and reporting.
 
-1. Ingest raw CSV data into Bronze layer
-2. Transform data in Databricks notebook
-3. Store curated data in Silver layer
-4. Aggregate data into Gold layer
-5. Query data using Synapse external table
-6. Schedule daily execution using ADF Trigger
+Sample PySpark Transformation:
 
----
+df = spark.read.format("csv") \
+    .option("header", "true") \
+    .load("/mnt/bronze/orders.csv")
 
-## 📊 Key Features
+df_clean = df.dropna() \
+    .withColumnRenamed("orderID", "order_id")
 
-✔ Medallion Architecture implementation  
-✔ Automated pipeline orchestration  
-✔ Production-ready cloud setup  
-✔ Data transformation using PySpark  
-✔ Synapse SQL external table integration  
+df_clean.write.format("parquet") \
+    .mode("overwrite") \
+    .save("/mnt/silver/orders_clean")
+
+Sample SQL Query (Gold Layer):
+      SELECT customer_id,
+           SUM(order_amount) AS total_spent
+    FROM gold.orders
+    GROUP BY customer_id;
+
+
+Key Skills Demonstrated
+
+✔ ETL Pipeline Design
+✔ Cloud Data Engineering
+✔ PySpark Transformations
+✔ Azure Data Factory Orchestration
+✔ Data Lake Architecture
+✔ SQL Query Optimization
+✔ Medallion Architecture Implementation
 
 ---
 
