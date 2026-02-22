@@ -18,23 +18,23 @@ The project is implemented using the following Azure services:
 
 🔄 Medallion Architecture
 
-Bronze Layer
+#Bronze Layer
   Raw data ingestion from source
   Stored in ADLS Gen2
   Minimal transformation
 
-Silver Layer
+#Silver Layer
   Data cleansing
   Handling null values
   Data type standardization
   Business logic transformations
 
-Gold Layer
+#Gold Layer
   Aggregated and curated datasets
   Ready for analytics and reporting
   Optimized for querying
   
-## ⚙ Technologies Used
+##  Technologies Used
 
 - Azure Data Factory
 - Azure Databricks (PySpark)
