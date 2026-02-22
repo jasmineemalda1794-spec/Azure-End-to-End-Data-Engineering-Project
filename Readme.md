@@ -46,30 +46,31 @@ The project is implemented using the following Azure services:
 ---
 ## Project Workflow
 
-1️⃣ Data is ingested into the Bronze layer using Azure Data Factory pipelines.
-2️⃣ Azure Databricks processes raw data using PySpark transformations.
-3️⃣ Cleaned data is written to the Silver layer.
-4️⃣ Aggregated datasets are stored in the Gold layer.
-5️⃣ Azure Synapse Analytics is used for querying and reporting.
+1️⃣ Data is ingested into the Bronze layer using Azure Data Factory pipelines.\
+2️⃣ Azure Databricks processes raw data using PySpark transformations.\
+3️⃣ Cleaned data is written to the Silver layer.\
+4️⃣ Aggregated datasets are stored in the Gold layer.\
+5️⃣ Azure Synapse Analytics is used for querying and reporting.\
 
 ## Sample PySpark Transformation:
 
-df = spark.read.format("csv") \
+`df = spark.read.format("csv") \
     .option("header", "true") \
-    .load("/mnt/bronze/orders.csv")
+    .load("/mnt/bronze/orders.csv")`
 
-df_clean = df.dropna() \
-    .withColumnRenamed("orderID", "order_id")
+`df_clean = df.dropna() \
+    .withColumnRenamed("orderID", "order_id")`
 
-df_clean.write.format("parquet") \
+`df_clean.write.format("parquet") \
     .mode("overwrite") \
     .save("/mnt/silver/orders_clean")
-
+`
 ## Sample SQL Query (Gold Layer):
-      SELECT customer_id,
+
+     ` SELECT customer_id,
            SUM(order_amount) AS total_spent
     FROM gold.orders
-    GROUP BY customer_id;
+    GROUP BY customer_id;`
 
 
 ## Key Skills Demonstrated
