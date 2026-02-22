@@ -10,11 +10,11 @@ The pipeline automates data ingestion, transformation using PySpark, and loading
 
 The project is implemented using the following Azure services:
 
-  -> Azure Data Factory (ADF) – Data ingestion & orchestration
-  -> Azure Data Lake Storage Gen2 (ADLS) – Data storage
-  -> Azure Databricks – Data transformation using PySpark
-  -> Azure Synapse Analytics – Querying curated data
-  -> SQL – Data validation & reporting
+* Azure Data Factory (ADF) – Data ingestion & orchestration
+* Azure Data Lake Storage Gen2 (ADLS) – Data storage
+* Azure Databricks – Data transformation using PySpark
+* Azure Synapse Analytics – Querying curated data
+* SQL – Data validation & reporting
 
 🔄 Medallion Architecture
 
@@ -25,15 +25,15 @@ The project is implemented using the following Azure services:
   
 
 #Silver Layer
-  Data cleansing
-  Handling null values
-  Data type standardization
-  Business logic transformations
+ * Data cleansing
+ * Handling null values
+ * Data type standardization
+ * Business logic transformations
 
 #Gold Layer
-  Aggregated and curated datasets
-  Ready for analytics and reporting
-  Optimized for querying
+  * Aggregated and curated datasets
+  * Ready for analytics and reporting
+  * Optimized for querying
   
 ##  Technologies Used
 
