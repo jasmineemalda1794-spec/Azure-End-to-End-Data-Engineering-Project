@@ -1,12 +1,12 @@
 # Azure End-to-End Data Engineering Project
 
-Project Overview:
+## Project Overview:
 
 This project demonstrates an end-to-end Azure Data Engineering pipeline built using modern cloud data architecture principles. The solution follows the Medallion Architecture (Bronze → Silver → Gold) design pattern to ingest, transform, and serve data for analytics.
 
 The pipeline automates data ingestion, transformation using PySpark, and loading into curated layers for reporting and analysis.
 
-Architecture:
+## Architecture:
 
 The project is implemented using the following Azure services:
 
@@ -43,7 +43,7 @@ Gold Layer
 - GitHub
 
 ---
-Project Workflow
+## Project Workflow
 
 1️⃣ Data is ingested into the Bronze layer using Azure Data Factory pipelines.
 2️⃣ Azure Databricks processes raw data using PySpark transformations.
@@ -51,7 +51,7 @@ Project Workflow
 4️⃣ Aggregated datasets are stored in the Gold layer.
 5️⃣ Azure Synapse Analytics is used for querying and reporting.
 
-Sample PySpark Transformation:
+## Sample PySpark Transformation:
 
 df = spark.read.format("csv") \
     .option("header", "true") \
@@ -64,14 +64,14 @@ df_clean.write.format("parquet") \
     .mode("overwrite") \
     .save("/mnt/silver/orders_clean")
 
-Sample SQL Query (Gold Layer):
+## Sample SQL Query (Gold Layer):
       SELECT customer_id,
            SUM(order_amount) AS total_spent
     FROM gold.orders
     GROUP BY customer_id;
 
 
-Key Skills Demonstrated
+## Key Skills Demonstrated
 
 ✔ ETL Pipeline Design
 ✔ Cloud Data Engineering
